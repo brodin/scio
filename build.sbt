@@ -315,7 +315,6 @@ lazy val root: Project = Project("scio", file("."))
     scioElasticsearch5,
     scioElasticsearch6,
     scioExtra,
-    scioHdfs,
     scioJdbc,
     scioParquet,
     scioTensorFlow,
@@ -614,18 +613,6 @@ lazy val scioExtra: Project = Project(
   )
   .configs(IntegrationTest)
 
-lazy val scioHdfs: Project = Project(
-  "scio-hdfs",
-  file("scio-hdfs")
-).settings(
-  commonSettings,
-  description := "Scio add-on for HDFS",
-  libraryDependencies ++= Seq(
-    "org.apache.beam" % "beam-sdks-java-io-hadoop-file-system" % beamVersion,
-    "org.apache.hadoop" % "hadoop-client" % hadoopVersion
-  )
-)
-
 lazy val scioJdbc: Project = Project(
   "scio-jdbc",
   file("scio-jdbc")
@@ -845,7 +832,6 @@ lazy val site: Project = project
     scioBigQuery,
     scioBigtable,
     scioParquet,
-    scioHdfs,
     scioSchemas,
     scioTest
   )
